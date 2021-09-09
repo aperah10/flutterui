@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/* -------------------------------------------------------------------------- */
+/*                   // ! SINGLE BUTTON :- 1 BUTTON IN PAGE                   */
+/* -------------------------------------------------------------------------- */
 class SingleBtn extends StatelessWidget {
   final String btnName;
   // final Widget Function() createPage;
@@ -49,6 +52,9 @@ class SingleBtn extends StatelessWidget {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                    // ! MULTIPLE BUTTON 2 BUTTON IN PAGE                   */
+/* -------------------------------------------------------------------------- */
 class MultipleBtn extends StatelessWidget {
   String btnName;
   dynamic submitMethod;
@@ -79,5 +85,39 @@ class MultipleBtn extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                   // ! FOURTH BTN :-  4 BUTTON IN ON PAGE                  */
+/* -------------------------------------------------------------------------- */
+class ForthBtn extends StatelessWidget {
+  String btnName;
+  dynamic submitMethod;
+  ForthBtn({Key? key, required this.btnName, this.submitMethod})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+        child: InkWell(
+            onTap: () {},
+            // sendPage
+            //     () {
+            //   Navigator.of(context).pushReplacementNamed(submitMethod);
+            // },
+            child: Container(
+                height: 50,
+                width: 100,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.redAccent, Colors.red],
+                      begin: Alignment.topLeft,
+                      end: Alignment.topRight,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: Center(
+                    child: Text(btnName,
+                        style: TextStyle(color: Colors.white))))));
   }
 }
