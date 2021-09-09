@@ -67,20 +67,22 @@ class MultipleBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: MaterialButton(
-        color: btnName == 'Buy' ? Colors.deepOrange : Colors.black54,
-        elevation: 0,
-        onPressed: () {},
-        child: Container(
-          padding: EdgeInsets.all(15.0),
-          child: Text(
-            btnName,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w500),
+    return Container(
+      child: Expanded(
+        child: MaterialButton(
+          color: btnName == 'Buy' ? Colors.deepOrange : Colors.black54,
+          elevation: 0,
+          onPressed: () {},
+          child: Container(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              btnName,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500),
+            ),
           ),
         ),
       ),
@@ -119,5 +121,42 @@ class ForthBtn extends StatelessWidget {
                 child: Center(
                     child: Text(btnName,
                         style: TextStyle(color: Colors.white))))));
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              // ! EXTRA BUTTON                             */
+/* -------------------------------------------------------------------------- */
+class ExtraBtn extends StatelessWidget {
+  String btnName;
+  dynamic submitMethod;
+  ExtraBtn({Key? key, required this.btnName, this.submitMethod})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Container(
+            margin: EdgeInsets.only(top: 20.0),
+            padding: EdgeInsets.only(bottom: 30.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("Already have an account? "),
+                GestureDetector(
+                  child: Text(
+                    btnName,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: () {
+                    // Navigator.of(context).push(
+                    //     MaterialPageRoute(builder: (context) => createPage()));
+                    Navigator.of(context).pushReplacementNamed(submitMethod);
+                  },
+                )
+              ],
+            )));
   }
 }

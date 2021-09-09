@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'Fortend/Ecom/Product/product_detail2.dart';
 import 'Fortend/Widget/Drawer/Dras.dart';
+import 'MyApp/B_Part/Product/Product_details.dart';
 import 'ResponsiveFile/SizeConf.dart';
 import 'ResponsiveFile/StylingC.dart';
 
@@ -52,7 +54,7 @@ class ResponsiveC extends StatelessWidget {
           background: Container(color: Color(0xFFF5F5F5))),
       title: 'Only Ui Pages ',
       // theme: CusTheme.lightTheme,
-      home: MyDrawerList(),
+      home: ProductDetailScr(),
       debugShowCheckedModeBanner: false,
     );
   }

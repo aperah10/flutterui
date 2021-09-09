@@ -33,10 +33,6 @@ class _MyDrawerListState extends State<MyDrawerList> {
             title: 'ProfileEditScreen',
             icon: Icons.account_circle,
             createPage: () => ProfileEditScreen()),
-        CusDrawerList(
-            title: 'Login',
-            icon: Icons.account_circle,
-            createPage: () => LoginPage()),
 
         // itemList(
         //   context,
