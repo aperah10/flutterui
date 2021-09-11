@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/* -------------------------------------------------------------------------- */
+/*                          // ! PRODUCT DETAILS PIC                          */
+/* -------------------------------------------------------------------------- */
 class SinglePic extends StatelessWidget {
   const SinglePic({Key? key}) : super(key: key);
 
@@ -22,5 +25,24 @@ class SinglePic extends StatelessWidget {
   ImageProvider itemImage() {
     AssetImage image = AssetImage("");
     return image;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                // ! CART PIC                               */
+/* -------------------------------------------------------------------------- */
+class CartPic extends StatelessWidget {
+  const CartPic({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 130,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+        image: NetworkImage(''),
+        fit: BoxFit.cover,
+      )),
+    );
   }
 }

@@ -24,7 +24,7 @@ class _FieldFState extends State<FieldF> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: 15,
       width: double.infinity,
       margin: EdgeInsets.only(),
       child: TextFormField(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class IconBtn extends StatelessWidget {
-  const IconBtn({Key? key}) : super(key: key);
+  IconData iconD;
+  IconBtn({Key? key, required this.iconD}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class IconBtn extends StatelessWidget {
         child: new IconButton(
           padding: new EdgeInsets.all(0.0),
           color: Colors.deepOrange,
-          icon: new Icon(Icons.clear, size: 18.0),
+          icon: new Icon(iconD, size: 18.0),
           onPressed: () {},
         ));
   }

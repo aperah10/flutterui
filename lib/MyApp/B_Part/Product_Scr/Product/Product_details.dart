@@ -31,7 +31,6 @@ class ProductDetailOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         // fit: StackFit.expand,
