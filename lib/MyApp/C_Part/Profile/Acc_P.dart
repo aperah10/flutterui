@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:uiproject/Fortend/Widget/Appbar/CusAppbar.dart';
-import 'package:uiproject/ResponsiveFile/StylingC.dart';
+
 import 'package:uiproject/ResuableCode/Aviatar_Pic.dart';
 
 // my import
 
-class AccountShowScreen extends StatelessWidget {
+class AccountScr extends StatelessWidget {
   static String routeName = "/profile";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CusTheme.appBackGroundColor,
+      // backgroundColor: CusTheme.appBackGroundColor,
       appBar: CustomAppBar(
         titlename: 'Account Page',
       ),

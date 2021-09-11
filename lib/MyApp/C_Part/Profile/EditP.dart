@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:uiproject/Fortend/Widget/Appbar/CusAppbar.dart';
-import 'package:uiproject/ResponsiveFile/SizeConf.dart';
 import 'package:uiproject/ResuableCode/Aviatar_Pic.dart';
+import 'package:uiproject/ResuableCode/Buttons_C.dart';
 
-class ProfileEditScreen extends StatelessWidget {
-  const ProfileEditScreen({Key? key}) : super(key: key);
+class ProfileEditScr extends StatelessWidget {
+  ProfileEditScr({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +80,8 @@ class _EditBodyState extends State<EditBody> {
 
               // orc BUTTON
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                EditBodyBtn(btnName: 'Save'),
-                EditBodyBtn(btnName: 'Cancel')
+                MultipleBtn(btnName: 'Save'),
+                MultipleBtn(btnName: 'Cancel')
               ])
             ],
           ),
@@ -118,25 +118,6 @@ class EditBodyFormF extends StatelessWidget {
               color: Colors.black,
             )),
       ),
-    );
-  }
-}
-
-// ! BUTTON FOR PROFILE PAGE
-class EditBodyBtn extends StatelessWidget {
-  String btnName;
-  EditBodyBtn({Key? key, required this.btnName}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      color: btnName == 'Save' ? Colors.green : Colors.red,
-      padding: EdgeInsets.symmetric(horizontal: 15.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-      onPressed: () {},
-      child: Text(btnName,
-          style: TextStyle(
-              fontSize: 15.0, letterSpacing: 2.2, color: Colors.black)),
     );
   }
 }
