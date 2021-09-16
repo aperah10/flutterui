@@ -43,38 +43,7 @@ class LunchState extends State<SProfileScreen>
               ),
             ],
           ),
-          // NameEdit text
-          FieldForms(
-            inputType: TextInputType.name,
-            placeholder: 'Name',
-            status: _status,
-          ),
-          FieldForms(
-              inputType: TextInputType.multiline,
-              placeholder: 'Gender',
-              status: _status),
-          FieldForms(
-              inputType: TextInputType.phone,
-              placeholder: 'Phone Number',
-              status: _status),
-          FieldForms(
-              inputType: TextInputType.emailAddress,
-              placeholder: 'EmailAddress',
-              status: _status),
-          FieldForms(
-              inputType: TextInputType.streetAddress,
-              placeholder: 'Address',
-              status: _status),
-          FieldForms(
-              inputType: TextInputType.streetAddress,
-              placeholder: 'City',
-              status: _status),
-
-          // ! STAUS FOR EDITITNG
-          !_status
-              ? SingleBtn(
-                  btnName: 'Update', submitMethod: () => SProfileScreen())
-              : new Container(),
+          ProfileFormOne(_status)
         ],
       ),
     ));
@@ -103,6 +72,58 @@ class LunchState extends State<SProfileScreen>
           _status = false;
         });
       },
+    );
+  }
+}
+
+// ! PROFILE ONE EDITITN PAGE
+class ProfileFormOne extends StatefulWidget {
+  bool _status;
+  ProfileFormOne(this._status, {Key? key, required}) : super(key: key);
+
+  @override
+  _ProfileFormOneState createState() => _ProfileFormOneState();
+}
+
+class _ProfileFormOneState extends State<ProfileFormOne> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: 20.0, left: 20.0, top: 80.0),
+      child: Form(
+          child: Column(children: <Widget>[
+        // NameEdit text
+        FieldForms(
+          inputType: TextInputType.name,
+          placeholder: 'Name',
+          status: widget._status,
+        ),
+        FieldForms(
+            inputType: TextInputType.multiline,
+            placeholder: 'Gender',
+            status: widget._status),
+        FieldForms(
+            inputType: TextInputType.phone,
+            placeholder: 'Phone Number',
+            status: widget._status),
+        FieldForms(
+            inputType: TextInputType.emailAddress,
+            placeholder: 'EmailAddress',
+            status: widget._status),
+        FieldForms(
+            inputType: TextInputType.streetAddress,
+            placeholder: 'Address',
+            status: widget._status),
+        // FieldForms(
+        //     inputType: TextInputType.streetAddress,
+        //     placeholder: 'City',
+        //     status: _status),
+
+        // ! STAUS FOR EDITITNG
+        !widget._status
+            ? SingleBtn(btnName: 'Update', submitMethod: () => SProfileScreen())
+            : new Container(),
+      ])),
     );
   }
 }
