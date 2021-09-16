@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:uiproject/APage/Address/create_address_screen.dart';
+import 'package:uiproject/APage/Order/Order2.dart';
+import 'package:uiproject/APage/Order/Order_Scr.dart';
+import 'package:uiproject/APage/Product/prod_det.dart';
 import 'package:uiproject/Fortend/Ecom/Auth/LoginPage.dart';
 import 'package:uiproject/Fortend/Ecom/Profile/Acc_Profile.dart';
 import 'package:uiproject/Fortend/Ecom/Profile/EditProfile.dart';
+import 'package:uiproject/Fortend/Ecom/Profile/Profile1.dart';
+import 'package:uiproject/Fortend/Ecom/Profile/ShowProfile.dart';
 
 import 'package:uiproject/Fortend/Ecom/Profile/ShowProfile2.dart';
 import 'package:uiproject/ResuableCode/Aviatar_Pic.dart';
@@ -26,20 +32,33 @@ class _MyDrawerListState extends State<MyDrawerList> {
 
         // ! CUSTOM DRAWER LIST ITEM
         CusDrawerList(
-            title: 'Accont Show',
+            title: 'Address',
             icon: Icons.account_circle,
-            createPage: () => AccountShowScreen()),
+            createPage: () => CreateAddressScreen()),
         CusDrawerList(
-            title: 'ProfileEditScreen',
+            title: 'ConfirmOrderPage',
             icon: Icons.account_circle,
-            createPage: () => ProfileEditScreen()),
-
-        // itemList(
-        //   context,
-        //   ()=> ProductListScr(),
-        //   title: 'ProductListScr',
-        //   icon: Icons.pages_outlined
-        // ),
+            createPage: () => ConfirmOrderPage()),
+        CusDrawerList(
+            title: 'MyOrdersScreen',
+            icon: Icons.account_circle,
+            createPage: () => MyOrdersScreen()),
+        CusDrawerList(
+            title: 'ProductScreen',
+            icon: Icons.account_circle,
+            createPage: () => ProductDetails()),
+        CusDrawerList(
+            title: 'ProfileScreen',
+            icon: Icons.account_circle,
+            createPage: () => ESprofileOne()),
+        CusDrawerList(
+            title: 'ProfilePage',
+            icon: Icons.account_circle,
+            createPage: () => ProfilePage()),
+        CusDrawerList(
+            title: 'SProfile',
+            icon: Icons.account_circle,
+            createPage: () => SProfileScreen()),
       ])),
     );
   }

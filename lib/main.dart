@@ -54,7 +54,7 @@ class ResponsiveC extends StatelessWidget {
           background: Container(color: Color(0xFFF5F5F5))),
       title: 'Only Ui Pages ',
       // theme: CusTheme.lightTheme,
-      home: ProductDetailScr(),
+      home: MyDrawerList(),
       debugShowCheckedModeBanner: false,
     );
   }

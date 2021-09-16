@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class FieldF extends StatefulWidget {
   bool obscureTxt;
-  late TextInputType inputType;
-  late String placeholder;
-  late TextEditingController controller;
-  // String? Function(String?)? formValidator;
-
+  final TextInputType? inputType;
+  final String? placeholder;
+  String? labelText;
+  final TextEditingController? controller;
+  String? Function(String?)? formValidator;
+  bool brd;
   FieldF(
       {Key? key,
-      required this.inputType,
-      required this.placeholder,
-      required this.controller,
-      // required this.formValidator,
+      this.inputType,
+      this.placeholder,
+      this.controller,
+      this.formValidator,
+      this.labelText,
+      this.brd = true,
       this.obscureTxt = false})
       : super(key: key);
 
@@ -23,40 +27,46 @@ class FieldF extends StatefulWidget {
 class _FieldFState extends State<FieldF> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 30.0, left: 30.0, right: 30.0),
-      child: TextFormField(
-        obscureText: widget.obscureTxt,
-        controller: widget.controller,
-        keyboardType: widget.inputType,
-        minLines: 1,
-        // validator: formValidator,
-        autofocus: false,
-        decoration: InputDecoration(
-            hintText: widget.placeholder,
-            // labelText: "Name",     // Set text upper animation
-            border: OutlineInputBorder(),
-            suffixIcon: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: widget.placeholder == 'Password' &&
-                      widget.inputType == TextInputType.visiblePassword
-                  ? IconButton(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onPressed: () {
-                        setState(() {
-                          widget.obscureTxt = !widget.obscureTxt;
-                        });
-                      },
-                      icon: Icon(
-                        widget.obscureTxt
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                        color: Colors.grey,
-                      ),
-                    )
-                  : null,
-            )),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 80,
+        width: double.infinity,
+        margin: EdgeInsets.only(),
+        child: TextFormField(
+          obscureText: widget.obscureTxt,
+          controller: widget.controller,
+          keyboardType: widget.inputType,
+          minLines: 1,
+          validator: widget.formValidator,
+          autofocus: false,
+          decoration: InputDecoration(
+              labelText: widget.labelText,
+              hintText: widget.placeholder,
+              // labelText: "Name",     // Set text upper animation
+              border: widget.brd ? OutlineInputBorder() : null,
+              suffixIcon: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: widget.placeholder == 'Password' &&
+                        widget.inputType == TextInputType.visiblePassword
+                    ? IconButton(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onPressed: () {
+                          setState(() {
+                            widget.obscureTxt = !widget.obscureTxt;
+                          });
+                        },
+                        icon: Icon(
+                          widget.obscureTxt
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: Colors.grey,
+                        ),
+                      )
+                    : null,
+              )),
+        ),
       ),
     );
   }

@@ -32,7 +32,16 @@ class EditBody extends StatefulWidget {
   _EditBodyState createState() => _EditBodyState();
 }
 
-class _EditBodyState extends State<EditBody> {
+class _EditBodyState extends State<EditBody>
+    with SingleTickerProviderStateMixin {
+  final FocusNode myFocusNode = FocusNode();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

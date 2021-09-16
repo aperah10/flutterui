@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:uiproject/Fortend/Ecom/Profile/ProfWidget3.dart';
+
+import 'ProfWidget2.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -100,11 +103,11 @@ class MapScreenState extends State<ProfilePage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      // FieldF(),
                       Padding(
                           padding: EdgeInsets.only(
                               left: 25.0, right: 25.0, top: 25.0),
                           child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             mainAxisSize: MainAxisSize.max,
                             children: <Widget>[
                               new Column(
@@ -112,36 +115,73 @@ class MapScreenState extends State<ProfilePage>
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   new Text(
-                                    'Name',
+                                    'Parsonal Information',
                                     style: TextStyle(
-                                        fontSize: 16.0,
+                                        fontSize: 18.0,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
+                              new Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  _status ? _getEditIcon() : new Container(),
+                                  // ! staus for Editing
+                                ],
+                              )
                             ],
                           )),
-                      Padding(
-                          padding: EdgeInsets.only(
-                              left: 25.0, right: 25.0, top: 2.0),
-                          child: new Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              new Flexible(
-                                child: new TextField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Enter Your Name",
-                                  ),
-                                  enabled: !_status,
-                                  autofocus: !_status,
-                                ),
-                              ),
-                            ],
-                          )),
-                      fieldname(title: 'Email Id'),
-                      fieldforms(hintxt: 'Enter Emaild Id '),
-                      fieldname(title: 'Mobile'),
-                      fieldforms(hintxt: "Enter Mobile Number"),
+                      // Padding(
+                      //     padding: EdgeInsets.only(
+                      //         left: 25.0, right: 25.0, top: 25.0),
+                      //     child: new Row(
+                      //       mainAxisSize: MainAxisSize.max,
+                      //       children: <Widget>[
+                      //         new Column(
+                      //           mainAxisAlignment: MainAxisAlignment.start,
+                      //           mainAxisSize: MainAxisSize.min,
+                      //           children: <Widget>[
+                      //             new Text(
+                      //               'Name',
+                      //               style: TextStyle(
+                      //                   fontSize: 16.0,
+                      //                   fontWeight: FontWeight.bold),
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       ],
+                      //     )),
+                      // Padding(
+                      //     padding: EdgeInsets.only(
+                      //         left: 25.0, right: 25.0, top: 2.0),
+                      //     child: new Row(
+                      //       mainAxisSize: MainAxisSize.max,
+                      //       children: <Widget>[
+                      //         new Flexible(
+                      //           child: new TextField(
+                      //             decoration: const InputDecoration(
+                      //               hintText: "Enter Your Name",
+                      //             ),
+                      //             enabled: !_status,
+                      //             // autofocus: !_status,
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     )),
+                      //  ! START FORM FORM FIELD
+                      FieldName(
+                        title: 'Name',
+                      ),
+                      FieldForms(
+                          placeholder: 'Enter the Name', status: _status),
+                      FieldName(title: 'Email Id'),
+                      FieldForms(
+                          placeholder: 'Enter Emaild Id ', status: _status),
+                      FieldName(title: 'Mobile'),
+                      FieldForms(
+                          placeholder: "Enter Mobile Number", status: _status),
+                      // ! END FIELDS
                       Padding(
                           padding: EdgeInsets.only(
                               left: 25.0, right: 25.0, top: 25.0),
@@ -149,12 +189,31 @@ class MapScreenState extends State<ProfilePage>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              fieldpincode(title: 'Pin Code'),
-                              fieldpincode(title: 'State'),
+                              PinCodeName(title: 'Pin Code'),
+                              PinCodeName(title: 'State'),
                             ],
                           )),
-                      fullformpicode(),
-                      !_status ? _getActionButtons() : new Container(),
+                      // fieldname(title: 'Email Id'),
+                      // fieldforms(hintxt: 'Enter Emaild Id '),
+                      // fieldname(title: 'Mobile'),
+                      // fieldforms(hintxt: "Enter Mobile Number"),
+                      // Padding(
+                      //     padding: EdgeInsets.only(
+                      //         left: 25.0, right: 25.0, top: 25.0),
+                      //     child: new Row(
+                      //       mainAxisSize: MainAxisSize.max,
+                      //       mainAxisAlignment: MainAxisAlignment.start,
+                      //       children: <Widget>[
+                      //         fieldpincode(title: 'Pin Code'),
+                      //         fieldpincode(title: 'State'),
+                      //       ],
+                      //     )),
+                      // fullformpicode(),
+                      //orc !_status ? _getActionButtons() : new Container(),
+
+                      FullPinCode(status: _status),
+                      // ! STAUS FOR EDITITNG
+                      !_status ? ActionBtn(status: _status) : new Container(),
                     ],
                   ),
                 ),
@@ -164,34 +223,6 @@ class MapScreenState extends State<ProfilePage>
         ],
       ),
     ));
-  }
-
-  Padding FfieldF({required String title}) {
-    return Padding(
-        padding: EdgeInsets.only(left: 25.0, right: 25.0, top: 25.0),
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            new Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new Text(
-                  'Parsonal Information',
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            new Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                _status ? _getEditIcon() : new Container(),
-              ],
-            )
-          ],
-        ));
   }
 
   Padding fullformpicode() {
@@ -343,7 +374,9 @@ class MapScreenState extends State<ProfilePage>
       ),
       onTap: () {
         setState(() {
+          print('this is status before $_status');
           _status = false;
+          print('this is status  $_status');
         });
       },
     );
